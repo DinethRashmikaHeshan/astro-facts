@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Facts Generator - Astronomy & Computer Science</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2a3d60, #1e2d45);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 600px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .subheading {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    #fact-container {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #next-fact {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #3498db;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    #next-fact:hover {
+      background-color: #2980b9;
+      transform: scale(1.1);
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fun Facts Generator</h1>
+    <p class="subheading">Learn amazing facts about Astronomy and Computer Science!</p>
+    <div id="fact-container">
+      <p id="fact"></p>
+    </div>
+    <button id="next-fact" onclick="generateFact()">Next Fact</button>
+  </div>
+
+  <script>
+    // Fun Facts about Astronomy and Computer Science
+    const facts = [
+      "Astronomers believe that the universe is 13.8 billion years old.",
+      "A day on Venus is longer than a year on Venus due to its slow rotation.",
+      "The closest galaxy to Earth is the Andromeda Galaxy, which is about 2.5 million light-years away.",
+      "There are more stars in the universe than grains of sand on all of Earth's beaches.",
+      "The first computer bug was an actual moth found in a computer relay in 1947.",
+      "The first computer programmer was Ada Lovelace, who wrote algorithms for Charles Babbage’s early mechanical computer.",
+      "The term 'computer bug' comes from an actual bug that was found in a computer in 1947.",
+      "The largest computer network in the world is the Internet, with billions of users worldwide.",
+      "The first email was sent by Ray Tomlinson to himself in 1971, containing the text 'QWERTYUIOP'.",
+      "There are more than 600 programming languages in use today, though many are rarely used."
+    ];
+
+    // Function to generate a random fact with a smooth transition
+    function generateFact() {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      const factElement = document.getElementById("fact");
+
+      // Adding a smooth fade-out and fade-in transition
+      factElement.style.opacity = 0;
+      setTimeout(() => {
+        factElement.textContent = facts[randomIndex];
+        factElement.style.opacity = 1;
+      }, 500);
+    }
+
+    // Call the function when the page loads
+    window.onload = generateFact;
+  </script>
+</body>
+</html>
